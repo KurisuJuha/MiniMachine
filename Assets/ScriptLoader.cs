@@ -30,18 +30,14 @@ public class ScriptLoader : MonoBehaviour
         {
             reloaded = false;
 
-            Task.Run(() => 
-            {
-                ReloadScript();
-            });
+            ReloadScript();
         }
     }
 
-    async void ReloadScript()
+    void ReloadScript()
     {
         try
         {
-
             if (!File.Exists(path))
             {
                 File.Create(path);
@@ -54,14 +50,16 @@ public class ScriptLoader : MonoBehaviour
 
             sr.Close();
 
-            if (!script.Equals(s))
+            if (!Data.Program.Equals(s))
             {
                 script = s;
+                Data.Program = s;
+                Data.Reload();
             }
         }
         catch (Exception e)
         {
-            Debug.Log(e.Message);
+            Debug.Log(e);
         }
 
         reloaded = true;
