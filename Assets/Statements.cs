@@ -71,7 +71,7 @@ public class JumpStatement : IStatement
 
     public void Run()
     {
-
+        Data.CurrentProgramPos = LabelNumber;
     }
 }
 
@@ -185,6 +185,9 @@ public class NativeStatement : IStatement
         {
             case 0:
                 Debug.Log(Data.Channels);
+                break;
+            case 1:
+                Debug.Log(string.Join(',', Data.Labels));
                 break;
             default:
                 break;

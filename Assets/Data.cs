@@ -12,6 +12,7 @@ public static class Data
     public static int CurrentChannelPos = 1;
     public static int CurrentMemoryPos;
     public static int CurrentProgramPos;
+    public static Dictionary<int, int> Labels = new Dictionary<int, int>();
     public static Action Reload;
 
     public static void MemoryReset()

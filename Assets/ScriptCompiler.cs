@@ -138,6 +138,7 @@ public class ScriptCompiler : MonoBehaviour
                     if (int.TryParse(Read().literal, out int labelresult))
                     {
                         Data.Statements.Add(new LabelStatement(labelresult));
+                        Data.Labels[labelresult] = Data.Statements.Count;
                     }
                     break;
                 case TokenType.JUMP:
