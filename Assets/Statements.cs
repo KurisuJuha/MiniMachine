@@ -84,7 +84,10 @@ public class IfStatement : IStatement
     }
     public void Run()
     {
-
+        if (Data.Channels.GetChannel(Data.CurrentChannelPos).GetMemory(Data.CurrentMemoryPos) == 0)
+        {
+            Data.CurrentProgramPos = LabelNumber;
+        }
     }
 }
 
