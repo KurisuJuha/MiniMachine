@@ -11,6 +11,7 @@ public static class Data
     public static Channels Channels = new Channels();
     public static int CurrentChannelPos = 1;
     public static int CurrentMemoryPos;
+    public static int CurrentProgramPos;
     public static Action Reload;
 
     public static void MemoryReset()
@@ -18,5 +19,6 @@ public static class Data
         Channels = new Channels();
         CurrentChannelPos = 1;
         CurrentMemoryPos = 0;
+        CurrentProgramPos = 0;
     }
 }

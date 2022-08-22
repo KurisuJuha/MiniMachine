@@ -171,3 +171,23 @@ public class LtStatement : IStatement
         }
     }
 }
+
+public class NativeStatement : IStatement
+{
+    public int Number;
+    public NativeStatement(int number)
+    {
+        Number = number;
+    }
+    public void Run()
+    {
+        switch (Number)
+        {
+            case 0:
+                Debug.Log(Data.Channels);
+                break;
+            default:
+                break;
+        }
+    }
+}

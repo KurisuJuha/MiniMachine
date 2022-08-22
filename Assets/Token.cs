@@ -27,6 +27,7 @@ public enum TokenType
     GT,
     LT,
     INT,
+    NATIVE,
 
     ILLEGAL,
     EOF,

@@ -16,6 +16,7 @@ public class ScriptCompiler : MonoBehaviour
         Data.MemoryReset();
         Lexesing();
         Parsing();
+        Run.end = false;
     }
 
     public void Lexesing()
@@ -77,6 +78,10 @@ public class ScriptCompiler : MonoBehaviour
                     case "lt":
                         token.literal = item;
                         token.type = TokenType.LT;
+                        break;
+                    case "native":
+                        token.literal = item;
+                        token.type = TokenType.NATIVE;
                         break;
                     default:
                         if (int.TryParse(item, out int result))
@@ -179,6 +184,12 @@ public class ScriptCompiler : MonoBehaviour
                     break;
                 case TokenType.INT:
                     Read();
+                    break;
+                case TokenType.NATIVE:
+                    if (int.TryParse(Read().literal, out int nativeresult))
+                    {
+                        Data.Statements.Add(new NativeStatement(nativeresult));
+                    }
                     break;
                 case TokenType.ILLEGAL:
                     Read();
