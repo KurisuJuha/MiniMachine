@@ -6,6 +6,17 @@ using UnityEngine;
 public static class Data
 {
     public static string Program = "";
-    public static List<string> Tokens = new List<string>();
+    public static List<Token> Tokens = new List<Token>();
+    public static List<IStatement> Statements = new List<IStatement>();
+    public static Channels Channels = new Channels();
+    public static int CurrentChannelPos = 1;
+    public static int CurrentMemoryPos;
     public static Action Reload;
+
+    public static void MemoryReset()
+    {
+        Channels = new Channels();
+        CurrentChannelPos = 1;
+        CurrentMemoryPos = 0;
+    }
 }
